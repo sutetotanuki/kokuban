@@ -1,5 +1,6 @@
 var React = require('react');
 var Message = require('./message.jsx');
+var CreateRoom = require('./CreateRoom.jsx');
 
 var App = React.createClass({
   getInitialState: function() {
@@ -24,6 +25,9 @@ var App = React.createClass({
       <div>
         <input type="text" value={this.state.person.name} onChange={this.handleChange} />
         <Message name={this.state.person.name} age={this.state.person.age} />
+        <div>
+          <CreateRoom />
+        </div>
       </div>
     );
   }

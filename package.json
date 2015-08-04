@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "babelify": "^6.1.3",
+    "browser-sync": "^2.8.2",
     "browserify": "^11.0.0",
     "coffee-script": "^1.9.3",
     "gulp": "^3.9.0",
