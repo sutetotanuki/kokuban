@@ -1,6 +1,14 @@
 var React = require('react');
 var Message = require('./message.jsx');
 var CreateRoom = require('./CreateRoom.jsx');
+var Router = require('react-router');
+var Wellcome = require('./Wellcome.jsx');
+var Room = require('./Room.jsx');
+
+var DefaultRoute = Router.DefaultRoute;
+var Link = Router.Link;
+var Route = Router.Route;
+var RouteHandler = Router.RouteHandler;
 
 var App = React.createClass({
   getInitialState: function() {
@@ -23,17 +31,24 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <input type="text" value={this.state.person.name} onChange={this.handleChange} />
-        <Message name={this.state.person.name} age={this.state.person.age} />
-        <div>
-          <CreateRoom />
-        </div>
+        <header>
+          <ul>
+            <li>test1<li>
+            <li>test2<li>
+          </ul>
+        </header>
       </div>
     );
   }
 });
 
-React.render(
-  <App />,
-  document.getElementById('container')
+var routes = (
+  <Route name="app" path="/" handler="{App}">
+    <Route name="room" handler={Room} />
+    <DefaultRoute handler={Wellcome} />
+  </Route>
 );
+
+Router.run(routes, function(Handler) {
+  React.render(<Handler/>, document.getElementById('container'));
+});

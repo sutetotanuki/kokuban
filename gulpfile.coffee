@@ -30,4 +30,5 @@ gulp.task 'server', ->
 
 gulp.task 'default', ['browserify', 'sass', 'server'],  ->
   gulp.watch './jsx/*.jsx', ['browserify']
+
   gulp.watch 'sass/**/*', ['sass']
