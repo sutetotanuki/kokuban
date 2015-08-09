@@ -33,17 +33,20 @@ var App = React.createClass({
       <div>
         <header>
           <ul>
-            <li>test1<li>
-            <li>test2<li>
+            <li>test1</li>
+            <li>test2</li>
           </ul>
         </header>
+        <article>
+          <RouteHandler />
+        </article>
       </div>
     );
   }
 });
 
 var routes = (
-  <Route name="app" path="/" handler="{App}">
+  <Route name="app" path="/" handler={App}>
     <Route name="room" handler={Room} />
     <DefaultRoute handler={Wellcome} />
   </Route>

@@ -12,17 +12,19 @@ var CreateRoom = React.createClass({
     });
   },
 
-  submitHundler: function(e) {
+  submitHandler: function(e) {
     event.preventDefault();
-    alert(this.state.roomName);
+    this.transitionTo('Room');
   },
 
   render: function() {
-    return <form onSubmit={this.submitHandler}>
-      <label >部屋名</label>
-      <input type="text" value={this.state.roomName} onChange={this.handleChange} />
-      <button type="submit">送信</button>
-    </form>
+    return (
+      <form onSubmit={this.submitHandler}>
+        <label >部屋名</label>
+        <input type="text" value={this.state.roomName} onChange={this.handleChange} />
+        <button type="submit">送信</button>
+      </form>
+    );
   }
 });
 

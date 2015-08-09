@@ -1,10 +1,10 @@
 var React = require('react');
+var CreateRoom = require('./CreateRoom.jsx');
 
 var Wellcome = React.createClass({
   render: function() {
     return (
       <div>
-        <input type="text" value={this.state.person.name} onChange={this.handleChange} />
         <div>
           <CreateRoom />
         </div>
@@ -12,3 +12,5 @@ var Wellcome = React.createClass({
     );
   }
 });
+
+module.exports = Wellcome;
