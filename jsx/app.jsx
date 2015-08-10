@@ -9,6 +9,8 @@ var DefaultRoute = Router.DefaultRoute;
 var Link = Router.Link;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
+var RouteHandlerMixin = Router.RouteHandlerMixin;
+var socket = require('./socket.js');
 
 var App = React.createClass({
   getInitialState: function() {
@@ -20,6 +22,11 @@ var App = React.createClass({
     }
   },
 
+  componentDidMount: function() {
+    var that = this;
+    this.socket = socket();
+  },
+
   handleChange: function(event) {
     this.setState({
       person: {
@@ -28,6 +35,11 @@ var App = React.createClass({
       }
     });
   },
+
+  createRoom: function(roomName) {
+    this.socket.emit('createRoom', roomName);
+  },
+
   render: function() {
     return (
       <div>
@@ -45,10 +57,11 @@ var App = React.createClass({
   }
 });
 
+
 var routes = (
   <Route name="app" path="/" handler={App}>
     <Route name="room" handler={Room} />
-    <DefaultRoute handler={Wellcome} />
+    <DefaultRoute handler={Wellcome}  />
   </Route>
 );
 

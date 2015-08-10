@@ -1,5 +1,6 @@
 var React = require('react');
 var Navigation = require('react-router').Navigation;
+var socket = require('./socket.js')();
 
 var CreateRoom = React.createClass({
   mixins: [ Navigation ],
@@ -17,6 +18,7 @@ var CreateRoom = React.createClass({
 
   submitHandler: function(e) {
     event.preventDefault();
+    this.props.createRoom(this.state.roomName);
     this.transitionTo('room');
   },
 
