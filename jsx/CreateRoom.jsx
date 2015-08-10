@@ -1,6 +1,9 @@
 var React = require('react');
+var Navigation = require('react-router').Navigation;
 
 var CreateRoom = React.createClass({
+  mixins: [ Navigation ],
+
   getInitialState: function() {
     return {
       roomName: "Enter the Room Name"
@@ -14,7 +17,7 @@ var CreateRoom = React.createClass({
 
   submitHandler: function(e) {
     event.preventDefault();
-    this.transitionTo('Room');
+    this.transitionTo('room');
   },
 
   render: function() {

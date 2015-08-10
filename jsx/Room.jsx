@@ -12,3 +12,5 @@ var Room = React.createClass({
     );
   }
 });
+
+module.exports = Room;
