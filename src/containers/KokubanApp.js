@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
-import { connect } from 'redux/react';
+import { connect } from 'react-redux';
+import * as KokubanActions from '../actions/kokubans';
 
-@connect(state => ({
-  messages: state.ChatteStore
-}));
-
-export default class KokubanApp extends Component{
+class KokubanApp extends Component{
   render() {
-    return (
-
+    return(
+      const {  }
     );
-  }^
+  }
 };
