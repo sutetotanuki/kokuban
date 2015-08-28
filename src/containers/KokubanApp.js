@@ -6,7 +6,8 @@ import * as KokubanActions from '../actions/kokubans';
 class KokubanApp extends Component{
   render() {
     return(
-      const {  }
+      const { rooms, dispatch } = this.props;
+      const actions = bindActionCreators(
     );
   }
 };
