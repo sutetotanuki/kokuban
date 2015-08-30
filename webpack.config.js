@@ -20,12 +20,12 @@ module.exports = {
     new ExtractTextPlugin("base.css")
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.styl']
+    extensions: ['', '.js', '.jsx', '.sass', 'scss']
   },
   module: {
     loaders: [
-          {test: /\.jsx?$/, loaders: ['react-hot', 'babel?stage=0'], include: path.join(__dirname, 'src')},
-          {test: /\.styl$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader'), exclude: /node_modules/}
+      {test: /\.jsx?$/, loaders: ['react-hot', 'babel?stage=0'], include: path.join(__dirname, 'src')},
+      {test: /\.s[ca]ss$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader'), exclude: /node_modules/}
     ]
   }
 };
