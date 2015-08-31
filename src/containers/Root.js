@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import KokubanApp from './TodoApp';
+import KokubanApp from './KokubanApp';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from '../reducers';
