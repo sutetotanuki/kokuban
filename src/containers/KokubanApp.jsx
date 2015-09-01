@@ -5,7 +5,7 @@ import * as KokubanActions from '../actions';
 import Editor from '../components/Editor';
 import RoomItem from '../components/RoomItem'
 
-class KokubanApp extends Component {
+export default class KokubanApp extends Component {
   render() {
     const { rooms, dispatch } = this.props;
     const actions = bindActionCreators(KokubanActions, dispatch);
@@ -16,7 +16,7 @@ class KokubanApp extends Component {
         <ul>
           {
             rooms.map(room =>
-              <RoomItem name={room} {...actions} />
+              <RoomItem name={room} actions={actions} />
             )
           }
         </ul>

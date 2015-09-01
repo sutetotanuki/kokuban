@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import KokubanApp from './KokubanApp';
-import { createStore } from 'redux';
+import configureStore from '../store/configureStore';
 import { Provider } from 'react-redux';
 import rootReducer from '../reducers';
 
-const store = createStore(rootReducer);
+const store = configureStore();
 
 export default class Root extends Component{
   render() {

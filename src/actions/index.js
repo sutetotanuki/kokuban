@@ -1,9 +1,9 @@
 export const CHANGE_ROOMS = 'CHANGE_ROOMS';
 
 export function createRoom(name) {
-  return { CREATE_ROOM, name };
+  return { type: CHANGE_ROOMS, name };
 }
 
 export function receiveChangeRooms(rooms) {
-  return { CHANGE_ROOMS, rooms };
+  return { type: CHANGE_ROOMS, rooms };
 }

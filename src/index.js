@@ -4,6 +4,6 @@ import React from 'react';
 import Root from './containers/Root';
 
 React.render(
-  <App />,
-  document.getElementById('app')
+  <Root />,
+  document.getElementById('container')
 );
