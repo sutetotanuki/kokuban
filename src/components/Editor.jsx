@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 export default class Editor extends Component{
-  getInitialState() {
-    return {
-      text: "Eneter your code here"
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      state: "Enter to edit"
     };
   }
 
@@ -14,7 +15,10 @@ export default class Editor extends Component{
   render() {
     return(
       <div className="editor">
-        <textarea onChange={handleChange}>{this.state.text}</textarea>
+        <form>
+          <textarea onChange={this.handleChange}>{this.state.text}</textarea>
+          <input type="submit" />
+        </form>
       </div>
     );
   }

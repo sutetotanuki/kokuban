@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { CHANGE_ROOMS } from '../actions';
 
-function rooms(state = {rooms: []}, action) {
+function rooms(state = {items: []}, action) {
   switch(action.type) {
     case CHANGE_ROOMS:
-      return state.rooms = action.rooms;
+      return state.items = action.items;
     default:
       return state;
   }
