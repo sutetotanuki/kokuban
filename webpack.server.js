@@ -6,7 +6,10 @@ new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
   historyApiFallback: true,
-  noInfo: true
+  noInfo: true,
+  proxy: {
+    "*": "http://localhost:3123"
+  }
 }).listen(3000, 'localhost', function (err, result) {
   if (err) {
     console.log(err);
