@@ -1,10 +1,19 @@
 var util = require('./util');
 
+var userIdMap = {};
+
 function User(params) {
-  this.id = util.uuid();
-  this.name = params.name;
+  this.id = params.socket.id;
+  this.socket = params.socket;
+  userIdMap[this.id] = this;
 };
 
-exports.newUser = function(params) {
+User.create = function(params) {
   new User(params);
 };
+
+User.findById = function(id) {
+  return userIdMap[id];
+};
+
+exports.User = User;
