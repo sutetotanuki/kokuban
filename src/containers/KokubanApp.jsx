@@ -8,26 +8,40 @@ import { socket } from '../socket';
 
 class KokubanApp extends Component {
 
-  cons
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      newRoomName: ""
+    };
+
+    this.handleNewRoomName = this.handleNewRoomName.bind(this);
+  }
 
   onCreateRoomSubmit(e) {
+    e.preventDefault();
     socket.emit('createRoom', { name: e.target.value });
   }
 
+  handleNewRoomName(e) {
+    this.setState({
+      newRoomName: e.target.value
+    });
+  }
+
   render() {
-    const { rooms, dispatch } = this.props;
+    const { rooms, dispatch, receiveChangeRooms } = this.props;
     const actions = bindActionCreators(KokubanActions, dispatch);
 
-    socket.on('changeRoom', (rooms) => {
-      dispatch(receiveChangeRooms(room));
+    socket.on('changeRooms', (rooms) => {
+      dispatch(actions.receiveChangeRooms(rooms));
     });
-
 
     return (
       <div>
         <div>
-          <form onSubmit={this.createRoom}>
-            <input 
+          <form onSubmit={this.onCreateRoomSubmit}>
+            <input value={this.state.newRoomName} onChange={this.handleNewRoomName} />
+            <input type="submit" value="送信" />
           </form>
         </div>
         <Editor rooms={rooms} actions={actions} />

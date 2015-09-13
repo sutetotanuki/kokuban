@@ -19,7 +19,7 @@ io.on('connection', function(socket) {
         user = User.findById(socket.id);
 
     room.addMember(user);
-    socket.emit('changeRooms', Room.all());
+    socket.emit('changeRooms', JSON.stringify(Room.allObject()));
   });
 });
 

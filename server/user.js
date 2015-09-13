@@ -8,6 +8,12 @@ function User(params) {
   userIdMap[this.id] = this;
 };
 
+User.prototype.toObject = function() {
+  return {
+    id: this.id
+  };
+};
+
 User.create = function(params) {
   new User(params);
 };
