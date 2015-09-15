@@ -15,11 +15,12 @@ class KokubanApp extends Component {
     };
 
     this.handleNewRoomName = this.handleNewRoomName.bind(this);
+    this.onCreateRoomSubmit = this.onCreateRoomSubmit.bind(this);
   }
 
   onCreateRoomSubmit(e) {
     e.preventDefault();
-    socket.emit('createRoom', { name: e.target.value });
+    socket.emit('createRoom', { name: this.state.newRoomName });
   }
 
   handleNewRoomName(e) {
@@ -47,8 +48,8 @@ class KokubanApp extends Component {
         <Editor rooms={rooms} actions={actions} />
         <ul>
           {
-            rooms.items.map(room =>
-              <RoomItem name={room} actions={actions} />
+            rooms.rooms.map(room =>
+              <RoomItem room={room} actions={actions} />
             )
           }
         </ul>

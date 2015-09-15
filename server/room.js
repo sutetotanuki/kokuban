@@ -12,16 +12,16 @@ Room.prototype.addMember = function(user) {
   this.members.push(user);
 };
 
-Room.prototype.toObject = function() {
+Room.prototype.props = function() {
   return {
     id: this.id,
     name: this.name,
-    members: this.members.map(function(member){return member.toObject() })
+    members: this.members.map(function(member){ return member.props(); })
   };
 };
 
 Room.create = function(params) {
-  ins = new Room(params);
+  var ins = new Room(params);
   rooms.push(ins);
   return ins;
 };
@@ -31,7 +31,7 @@ Room.all = function() {
 };
 
 Room.allObject = function() {
-  return rooms.map(function(room) { return room.toObject() });
+  return rooms.map(function(room) { return room.props(); });
 };
 
 exports.Room = Room;

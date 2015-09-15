@@ -8,7 +8,7 @@ function User(params) {
   userIdMap[this.id] = this;
 };
 
-User.prototype.toObject = function() {
+User.prototype.props = function() {
   return {
     id: this.id
   };
