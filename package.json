@@ -33,6 +33,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "dev": "supervisor server.js",
     "watch": "node webpack.server.js"
   }
 }

@@ -2,6 +2,10 @@
 
 ## Setup
 ```bash
-npm run setup
-gulp #=> To be running...
+npm start
+# or run server with hot reloading
+npm run dev
+
+# and run webpack dev server
+npm run watch
 ```

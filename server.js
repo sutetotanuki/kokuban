@@ -21,6 +21,10 @@ io.on('connection', function(socket) {
     room.addMember(user);
     socket.emit('changeRooms', JSON.stringify(Room.allObject()));
   });
+
+  socket.on('newMessege', function(params){
+    var room = Room.findById(params.serverId);
+  });
 });
 
 console.log('server started');

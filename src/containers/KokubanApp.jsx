@@ -5,6 +5,7 @@ import * as KokubanActions from '../actions';
 import Editor from '../components/Editor';
 import RoomItem from '../components/RoomItem';
 import { socket } from '../socket';
+import Board from '../components/Board';
 
 class KokubanApp extends Component {
 

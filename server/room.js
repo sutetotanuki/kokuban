@@ -1,4 +1,5 @@
 var util = require('./util');
+var _ = require('lodash');
 
 var rooms = {};
 
@@ -22,7 +23,7 @@ Room.prototype.props = function() {
 
 Room.create = function(params) {
   var ins = new Room(params);
-  rooms[ins.id, ins];
+  rooms[ins.id] = ins;
   return ins;
 };
 
@@ -31,7 +32,11 @@ Room.all = function() {
 };
 
 Room.allObject = function() {
-  return rooms.values.map(function(room) { return room.props(); });
+  return _.values(rooms).map(function(room) { return room.props(); })
+};
+
+Room.findById = function(id) {
+  return rooms[id];
 };
 
 exports.Room = Room;
