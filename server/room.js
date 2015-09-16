@@ -1,6 +1,6 @@
 var util = require('./util');
 
-var rooms = [];
+var rooms = {};
 
 function Room(params) {
   this.id = util.uuid();
@@ -22,7 +22,7 @@ Room.prototype.props = function() {
 
 Room.create = function(params) {
   var ins = new Room(params);
-  rooms.push(ins);
+  rooms[ins.id, ins];
   return ins;
 };
 
@@ -31,7 +31,7 @@ Room.all = function() {
 };
 
 Room.allObject = function() {
-  return rooms.map(function(room) { return room.props(); });
+  return rooms.values.map(function(room) { return room.props(); });
 };
 
 exports.Room = Room;
